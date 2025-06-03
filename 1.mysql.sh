@@ -49,7 +49,8 @@ if [ $? -eq 0 ]
 then
     echo "already setup"
 else
-mysql_secure_installation --set-root-pass ExpenseApp@1 &>> $LOG_FILE
-VALIDATE_FUN $? "SETUP ROOT PASSWORD"
+    mysql_secure_installation --set-root-pass ExpenseApp@1 &>> $LOG_FILE
+    VALIDATE_FUN $? "SETUP ROOT PASSWORD"
+fi
 
 mkdir -p rabbani
