@@ -13,16 +13,16 @@ N="\e[0m"
 VALIDATE_FUN(){
     if [ $1 -ne 0 ]
     then
-        echo -e "$2 is $R FAILURE"
+        echo -e "$2 is $R FAILURE $N"
         exit 1
     else
-        echo -e "$2 is $G SUCCESS"
+        echo -e "$2 is $G SUCCESS $N"
     fi
 }
 
 if [ $USER_ID -eq 0 ]
 then
-    echo -e "$Y INSTALLING PACKAGE"
+    echo -e "$Y INSTALLING PACKAGE $N"
 else
     echo "NEED TO SUDO USER FOR THIS PACKAGE INSTALLATION"
     exit 1
