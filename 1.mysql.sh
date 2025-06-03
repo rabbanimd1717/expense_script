@@ -11,6 +11,7 @@ VALIDATE_FUN(){
         echo "$2 is SUCCESS"
     else
         echo "$2 is FAILURE"
+    fi
 }
 
 if [ $USER_ID -eq 0 ]
@@ -18,6 +19,7 @@ then
     echo "INSTALLING PACKAGE"
 else
     echo "NEED TO SUDO USER FOR THIS PACKAGE INSTALLATION"
+fi
 
 
 dnf install mysql-server -y >> $LOG_FILE
