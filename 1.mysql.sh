@@ -48,6 +48,7 @@ mysql -h 172.31.19.102 -u root -pExpenseApp@1 "SHOW DATABASES;"
 if [ $? -eq 0 ]
 then
     echo "already setup"
+    exit 1
 else
     mysql_secure_installation --set-root-pass ExpenseApp@1 &>> $LOG_FILE
     VALIDATE_FUN $? "SETUP ROOT PASSWORD"
