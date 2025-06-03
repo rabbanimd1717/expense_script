@@ -41,8 +41,15 @@ systemctl start mysqld >> $LOG_FILE
 
 VALIDATE_FUN $? "START MYSQL"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1 >> $LOG_FILE
+# mysql_secure_installation --set-root-pass ExpenseApp@1 >> $LOG_FILE
 
+mysql -h 172.31.19.102 -u root -pExpenseApp@1 "SHOW DATABASES"
+
+if [ $? -eq 0 ]
+then
+    echo "already setup"
+else
+mysql_secure_installation --set-root-pass ExpenseApp@1 &>> $LOG_FILE
 VALIDATE_FUN $? "SETUP ROOT PASSWORD"
 
-mkdir  rabbani
+mkdir -p rabbani
