@@ -2,8 +2,8 @@
 
 USER_ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
-SCRIPTING_NAME=$(echo $0 | cut -d "-" -f1)
-LOG_FILE=/tmp/$SCRIPTING_NAME-$TIMESTAMP.log
+SCRIPT_NAME=$(echo $0 | cut -d "-" -f2)
+LOG_FILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
 
 R="\e[31m"
 G="\e[32m"
