@@ -40,5 +40,7 @@ dnf install nodejs -y &>> NODEJS
 
 VALIDATE_FUN $? "INSTALLING NODEJS"
 
-useradd expense
+id expense
+
+
 
