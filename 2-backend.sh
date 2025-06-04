@@ -36,7 +36,7 @@ dnf module enable nodejs:20 -y &>> LOG_FILE
 
 VALIDATE_FUN $? "ENABLING NODEJS"
 
-dnf install nodejs -y
+dnf install nodejs -y &>> NODEJS
 
 VALIDATE_FUN $? "INSTALLING NODEJS"
 
