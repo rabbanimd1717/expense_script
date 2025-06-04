@@ -40,7 +40,15 @@ dnf install nodejs -y &>> NODEJS
 
 VALIDATE_FUN $? "INSTALLING NODEJS"
 
-id expense
+id expense &>> LOG_FILE
+
+if [ $? -ne 0 ]
+then
+    useradd expense &>> LOG_FILE
+    VALIDATE_FUN $? "USER CREATING"
+else
+    echo "$G USER ALREADY EXISTING $Y SKIPPING $N"
+fi
 
 
 
