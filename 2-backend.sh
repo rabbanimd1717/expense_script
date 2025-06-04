@@ -47,7 +47,7 @@ then
     useradd expense &>> LOG_FILE
     VALIDATE_FUN $? "USER CREATING"
 else
-    echo "$G USER ALREADY EXISTING $Y SKIPPING $N"
+    echo -e "$G USER ALREADY EXISTING $Y SKIPPING $N"
 fi
 
 
