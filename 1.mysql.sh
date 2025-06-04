@@ -9,6 +9,8 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
+echo "Please enter DB secure password"
+read -s DB_PASSWORD
 
 VALIDATE_FUN(){
     if [ $1 -ne 0 ]
@@ -43,14 +45,14 @@ VALIDATE_FUN $? "START MYSQL"
 
 # mysql_secure_installation --set-root-pass ExpenseApp@1 >> $LOG_FILE
 
-mysql -h 172.31.19.102 -u root -pExpenseApp@1 -e "SHOW DATABASES;"
+mysql -h 172.31.19.102 -u root -p${DB_PASSWORD} -e "SHOW DATABASES;"
 
 if [ $? -eq 0 ]
 then
     echo "already setup"
     exit 1
 else
-    mysql_secure_installation --set-root-pass ExpenseApp@1 &>> $LOG_FILE
+    mysql_secure_installation --set-root-pass ${DB_PASSWORD} &>> $LOG_FILE
     VALIDATE_FUN $? "SETUP ROOT PASSWORD"
 fi
 
