@@ -37,4 +37,17 @@ systemctl enable nginx &>>$LOG_FILE
 systemctl start nginx &>>$LOG_FILE
 VALIDATE_FUN $? "NGINX ENABLING AND START"
 
+rm -rf /usr/share/nginx/html/* &>>$LOG_FILE
+VALIDATE_FUN $? "REMOVING CONTENT OF DEFAULT NGINX"
+
+curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip &>>$LOG_FILE
+VALIDATE_FUN $? "FRONTEND CODE DOWNLOAD STORED IN S3"
+
+cd /usr/share/nginx/html &>>$LOG_FILE
+
+unzip /tmp/frontend.zip &>>$LOG_FILE
+VALIDATE_FUN $? "UNZIP THE FILE"
+
+
+
 
