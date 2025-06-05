@@ -49,7 +49,7 @@ cd /usr/share/nginx/html &>>$LOG_FILE
 unzip /tmp/frontend.zip &>>$LOG_FILE
 VALIDATE_FUN $? "UNZIP THE FILE"
 
-cp /home/ec2-user/expense_script /etc/nginx/default.d/expense.conf &>>$LOG_FILE
+cp /home/ec2-user/expense_script/expense.conf /etc/nginx/default.d/expense.conf &>>$LOG_FILE
 VALIDATE_FUN $? "COPY THE FILE INTO THE EXPENSE CONFIGURATION"
 
 systemctl restart nginx &>>$LOG_FILE
