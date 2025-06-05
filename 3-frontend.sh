@@ -10,8 +10,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-echo "enter secret password of mysql"
-read -s mysqlpassword
+
 
 VALIDATE_FUN(){
     if [ $1 -ne 0 ]
@@ -37,4 +36,5 @@ VALIDATE_FUN $? "NGINX INSTALLATION PACKAGE"
 systemctl enable nginx &>>$LOG_FILE
 systemctl start nginx &>>$LOG_FILE
 VALIDATE_FUN $? "NGINX ENABLING AND START"
+
 
