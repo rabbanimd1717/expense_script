@@ -45,8 +45,21 @@ VALIDATE_FUN $? "FRONTEND CODE DOWNLOAD STORED IN S3"
 
 cd /usr/share/nginx/html &>>$LOG_FILE
 
+
 unzip /tmp/frontend.zip &>>$LOG_FILE
 VALIDATE_FUN $? "UNZIP THE FILE"
+
+cp /home/ec2-user/expense_script /etc/nginx/default.d/expense.conf &>>$LOG_FILE
+VALIDATE_FUN $? "COPY THE FILE INTO THE EXPENSE CONFIGURATION"
+
+systemctl restart nginx &>>$LOG_FILE
+VALIDATE_FUN $? "RESTART THE NGINX"
+
+systemctl status nginx &>>$LOG_FILE
+VALIDATE_FUN $? "STATUS OF NGINX"
+
+
+
 
 
 
