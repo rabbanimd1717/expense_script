@@ -7,7 +7,7 @@ USER_FUN
 echo "Please enter DB secure password"
 read -s DB_PASSWORD
 
-dnf install mysql-serverss -y >> $LOG_FILE
+dnf install mysql-server -y >> $LOG_FILE
 
 systemctl enable mysqld >> $LOG_FILE
 

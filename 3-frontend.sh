@@ -4,7 +4,7 @@ source ./common.sh
 
 USER_FUN
 
-dnf install nginxx -y &>>$LOG_FILE
+dnf install nginx -y &>>$LOG_FILE
 
 systemctl enable nginx &>>$LOG_FILE
 systemctl start nginx &>>$LOG_FILE
