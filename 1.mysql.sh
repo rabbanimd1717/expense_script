@@ -13,15 +13,13 @@ read -s DB_PASSWORD
 
 dnf install mysql-server -y >> $LOG_FILE
 
-VALIDATE_FUN $? "INSTALLING MYSQL"
-
 systemctl enable mysqld >> $LOG_FILE
 
-VALIDATE_FUN $? "ENABLED MYSQL"
+
 
 systemctl start mysqld >> $LOG_FILE
 
-VALIDATE_FUN $? "START MYSQL"
+
 
 # mysql_secure_installation --set-root-pass ExpenseApp@1 >> $LOG_FILE
 
@@ -33,7 +31,6 @@ then
     exit 1
 else
     mysql_secure_installation --set-root-pass ${DB_PASSWORD} &>> $LOG_FILE
-    VALIDATE_FUN $? "SETUP ROOT PASSWORD"
 fi
 
 mkdir -p rabbani

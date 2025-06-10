@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 USER_ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 SCRIPTING_NAME=$(echo $0 | cut -d "." -f2)
