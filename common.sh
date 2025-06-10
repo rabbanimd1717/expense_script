@@ -21,10 +21,12 @@ VALIDATE_FUN(){
     fi
 }
 
-if [ $USER_ID -eq 0 ]
-then
-    echo -e "$Y INSTALLING PACKAGE $N"
-else
-    echo "NEED TO SUDO USER FOR THIS PACKAGE INSTALLATION"
-    exit 1
-fi
+USER_FUN(){
+    if [ $USER_ID -eq 0 ]
+    then
+        echo -e "$Y INSTALLING PACKAGE $N"
+    else
+        echo "NEED TO SUDO USER FOR THIS PACKAGE INSTALLATION"
+        exit 1
+    fi
+}
