@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./common.sh
+source ./common.sh
 
 # USER_ID=$(id -u)
 # TIMESTAMP=$(date +%F-%H-%M-%S)
